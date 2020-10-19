@@ -1,0 +1,49 @@
+#page-success { 
+  width: 100vw;
+  height: 100vh;
+  background-color: #37C77F;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#page-success .orphanage-created {
+  max-width: 400px;
+  margin-right: 120px;
+}
+
+#page-success .orphanage-created h1 {
+  color: #FFFFFF;
+  font-size: 80px;
+  line-height: 80px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+#page-success .orphanage-created p {
+  max-width: 400px;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 600;
+}
+
+#page-success .orphanage-created button {
+  border: none;
+  width: 245px;
+  height: 65px;
+  margin-top: 60px;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 800;
+  background-color: #31B272;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#page-success .orphanage-created button:hover {
+  background-color: #3BD689;
+}

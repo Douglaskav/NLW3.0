@@ -73,6 +73,14 @@ export default function CreateOrphanage() {
       history.push('/app');
     })
   }
+  
+  function handleDataForm() {
+    if(name || about || position || instructions || opening_hours || open_on_weekends) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div id="page-create-orphanage">
