@@ -10,6 +10,7 @@ import mapIcon from '../utils/mapIcon';
 import api from '../services/api';
 
 import '../styles/pages/create-orphanage.css';
+import Switch from '../components/Switch';
 
 export default function CreateOrphanage() {
   const history = useHistory();
@@ -20,7 +21,7 @@ export default function CreateOrphanage() {
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
-  const [open_on_weekends, setOpenOnWeekEnds] = useState(false);
+  const [open_on_weekends, setOpenOnWeekEnds] = useState<boolean>(false);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
 
@@ -155,27 +156,15 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
-              <div className="button-select">
-                <button
-                  type="button"
-                  className={open_on_weekends ? 'active' : ''}
-                  onClick={() => setOpenOnWeekEnds(true)}
-                >
-                  Sim
-                </button>
-                <button
-                  type="button"
-                  className={!open_on_weekends ? 'active' : ''}
-                  onClick={() => setOpenOnWeekEnds(false)}
-                >
-                  Não
-                </button>
+              <div className="open_on_weekends_form">
+                <label className="open_on_weekends">Aberto aos finais de semana</label>
+                <Switch isOn={open_on_weekends} handleStateSwitch={() => setOpenOnWeekEnds(!open_on_weekends)} />
               </div>
             </div>
-          </fieldset>
+         </fieldset>
 
           <button className="confirm-button" type="submit" disabled={
-            !name || !about || !images || !instructions || !opening_hours || !!!position.latitude || !!!position.longitude || open_on_weekends
+            !name || !about || !images || !instructions || !opening_hours || !!!position.latitude || !!!position.longitude
            }>
             Confirmar
           </button>
