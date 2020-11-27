@@ -68,20 +68,12 @@ export default function CreateOrphanage() {
       data.append('images', image);
     });
 
-    api.post('orphanages', data).then(response => {
+    api.post('orphanages', data).then(() => {
       alert('Cadastro realizado com sucesso !');
       history.push('/app');
     })
   }
   
-  function handleDataForm() {
-    if(name || about || position || instructions || opening_hours || open_on_weekends) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   return (
     <div id="page-create-orphanage">
       <Sidebar />
@@ -97,7 +89,7 @@ export default function CreateOrphanage() {
               zoom={15}
               onClick={handleMapClick}
             >
-              <TileLayer 
+              <TileLayer
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
 
@@ -163,8 +155,6 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="open_on_weekends">Atende fim de semana</label>
-
               <div className="button-select">
                 <button
                   type="button"
@@ -184,7 +174,9 @@ export default function CreateOrphanage() {
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit">
+          <button className="confirm-button" type="submit" disabled={
+            !name || !about || !images || !instructions || !opening_hours || !!!position.latitude || !!!position.longitude || open_on_weekends
+           }>
             Confirmar
           </button>
         </form>

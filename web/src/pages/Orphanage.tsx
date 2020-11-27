@@ -94,7 +94,7 @@ export default function Orphanage() {
               </Map>
 
               <footer>
-                <a target="_blank" href={`http://maps.google.com/?q=${orphanage.latitude},${orphanage.longitude}`}>Ver rotas no Google Maps</a>
+                <a rel="noopener" href={`http://maps.google.com/?q=${orphanage.latitude},${orphanage.longitude}`}>Ver rotas no Google Maps</a>
               </footer>
             </div>
 
