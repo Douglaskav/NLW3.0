@@ -132,11 +132,6 @@ form.create-orphanage-form .open_on_weekends {
   width: 90%;
 }
 
-form.create-orphanage-form input[type="checkbox"] {
-  width: 64px;
-  height: 27px;
-}
-
 form.create-orphanage-form button.confirm-button {
   margin-top: 64px;
 

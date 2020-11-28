@@ -23,7 +23,7 @@ function Landing() {
           <p>Visite orfanatos e mude o dia de muitas crianças.</p>
         </main>
 
-        <button className="landing-btn">Acesso restrito</button>
+        <Link to="/app/login" className="landing-btn">Acesso Restrito</Link>
 
         <Link to="/app" className="enter-app">
           <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
