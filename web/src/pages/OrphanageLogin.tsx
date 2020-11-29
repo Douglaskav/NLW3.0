@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import "../styles/pages/orphanage-login.css";
 
-import HappyLogo from "../images/Logotipo.png";
+import Banner from "../components/Banner";
+
 import Arrow from "../images/Arrow.svg";
 
 import {Link} from "react-router-dom";
@@ -17,13 +18,7 @@ export default function Login() {
           <img src={Arrow} alt="Voltar" />
         </Link>
       </div>
-      <div className="login-logo">
-        <img src={HappyLogo} alt="Happy Logo"  />
-        <div className="location">
-          <strong>Rio Grande do Norte</strong>
-          <span>Mossoró</span>
-        </div> 
-      </div>
+      <Banner />
       <div className="form">
         <form className="signin-form">
           <h2>Fazer Login.</h2>

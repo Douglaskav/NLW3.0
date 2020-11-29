@@ -7,34 +7,6 @@
   background-color: #FFFFFF;
 } 
  
-#page-login .login-logo {
-  background-color: #11C0CB;
-  width: 65%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#page-login .login-logo .location  {
-  display: flex;
-  margin-top: 30px;
-  flex-direction: column;
-  text-align: center;
-  font-size: 24px;
-  line-height: 34px; 
-}
-
-#page-login .login-logo .location strong {
- font-weight: 800;
-}
-
-#page-login .form {
-  flex: 1;
-  margin: 90px 80px;
-}
-
 #page-login .form .signin-form {
   display: flex;
   flex-direction: column;
@@ -46,6 +18,11 @@
   font-size: 32px;
   line-height: 34px;
   color: #4D6F80;
+}
+
+#page-login .form {
+  flex: 1;
+  margin: 90px 80px;
 }
 
 #page-login .form .signin-form .form-label {

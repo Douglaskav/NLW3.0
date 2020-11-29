@@ -1,0 +1,22 @@
+.login-logo {
+  background-color: #11C0CB;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-logo .location  {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  text-align: center;
+  font-size: 24px;
+  line-height: 34px; 
+}
+
+.login-logo .location strong {
+ font-weight: 800;
+}
+
