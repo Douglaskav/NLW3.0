@@ -8,8 +8,9 @@ import CreateOrphanage from './pages/CreateOrphanage';
 import OrphanageSuccess from './pages/OrphanageSuccess';
 import OrphanageLogin from './pages/OrphanageLogin';
 import ForgetPassword from './pages/ForgetPassword';
+import RecivedEmailPage from './pages/RecivedEmailPage';
 
-function Routes() {
+export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
@@ -23,9 +24,9 @@ function Routes() {
 
         <Route path="/app/login" component={OrphanageLogin} />
         <Route path="/app/forgetPassword" component={ForgetPassword} />
+
+        <Route path="/app/recived" component={RecivedEmailPage} />
       </Switch>
     </BrowserRouter>
   )
 }
-
-export default Routes;

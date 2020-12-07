@@ -1,0 +1,98 @@
+#recived-email-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: #fff;
+}
+
+#recived-email-page .password-reset {
+  flex: 1;
+  margin: 120px 60px;
+}
+
+#recived-email-page .password-reset h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 16px;
+  line-height: 34px;
+  color: #4D6F80;
+}
+
+#recived-email-page .password-reset p {
+  color: #5C8599;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+
+#recived-email-page .password-reset .form-label {
+  display: flex;
+  color: #8FA7B3;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 24px;
+}
+
+#recived-email-page .password-reset .input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#recived-email-page .password-reset .input .icon {
+  position: absolute;
+  right: 80px;
+  margin-top: 20px;
+}
+
+#recived-email-page .password-reset form .input .form-input {
+  width: 100%;
+  height: 64px;
+  padding: 0 16px;
+  background: #F5F8FA;
+  border: 1px solid #D3E2E5;
+  border-radius: 20px;
+  outline: none;
+  color: #5C8599;
+}
+
+#recived-email-page .password-reset button.confirm-button {
+  margin-top: 64px;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #3CDC8C;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+#recived-email-page button.confirm-button:disabled,
+#recived-email-page button.confirm-button[disabled] {
+  background-color: #9be3bf;
+  cursor: not-allowed;
+}
+
+#recived-email-page button.confirm-button:disabled:hover,
+#recived-email-page button.confirm-button[disabled]:hover {
+  background-color: #9be3bf;
+}
+
+#recived-email-page button.confirm-button svg {
+  margin-right: 16px;
+}
+
+#recived-email-page button.confirm-button:hover {
+  background: #36cf82;
+}

@@ -53,7 +53,7 @@ export default function CreateOrphanage() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const { latitude, longitude } = position
+    const { latitude, longitude } = position;
 
     const data = new FormData();
 
