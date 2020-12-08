@@ -1,0 +1,75 @@
+#page-orphanage-pending {
+  width: 100%;
+  display: flex;
+}
+
+#page-orphanage-pending .pending-orphanages {
+  width: 80%;
+  margin: 60px auto;
+}
+
+#page-orphanage-pending .pending-orphanages .titles {
+  width: 100%;
+  border-bottom: 1px solid #D3E2E5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#page-orphanage-pending .pending-orphanages .titles h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 16px;
+  line-height: 34px;
+  color: #4D6F80;
+}
+
+#page-orphanage-pending .pending-orphanages .titles small {
+  color: #4D6F80;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages {
+  display: flex;
+  margin-top: 30px;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li {
+  width: 530px;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li .map-container {
+  background: #FFFFFF;
+  border: 2px solid #D3E2E5;
+  border-radius: 20px;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li .map-container footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li .map-container footer .buttons a  {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background-color: #EBF2F5;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li .map-container footer h3 {
+  color: #4D6F80;
+}
+
+#page-orphanage-pending .pending-orphanages ul.orphanages li .map-container .leaflet-container {
+  border-bottom: 2px solid #D3E2E5;
+  border-radius: 20px; 
+}

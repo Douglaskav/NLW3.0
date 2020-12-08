@@ -9,6 +9,8 @@ import OrphanageSuccess from './pages/OrphanageSuccess';
 import OrphanageLogin from './pages/OrphanageLogin';
 import ForgetPassword from './pages/ForgetPassword';
 import RecivedEmailPage from './pages/RecivedEmailPage';
+import OrphanagePending from './pages/OrphanagePending';
+
 
 export default function Routes() {
   return (
@@ -26,6 +28,8 @@ export default function Routes() {
         <Route path="/app/forgetPassword" component={ForgetPassword} />
 
         <Route path="/app/recived" component={RecivedEmailPage} />
+
+        <Route path="/app/admin" component={OrphanagePending} />
       </Switch>
     </BrowserRouter>
   )

@@ -1,0 +1,71 @@
+aside.app-sidebar-admin {              
+  width: 96px;
+  height: 100vh; 
+  padding: 32px 24px; 
+  background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
+  
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+} 
+ 
+aside.app-sidebar-admin img {
+  width: 48px;
+} 
+ 
+aside.app-sidebar-admin nav {
+  display: flex;
+  flex-direction: column;
+}
+
+aside.app-sidebar-admin nav {
+  margin-top: 20px;
+}
+
+aside.app-sidebar-admin nav .sidebar-admin-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  background-color: #11AECA;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+aside.app-sidebar-admin nav .sidebar-admin-button:last-child {
+  margin-top: 15px;
+}
+
+aside.app-sidebar-admin nav .sidebar-admin-button.active {
+  background-color: #FED565;
+}
+
+aside.app-sidebar-admin nav .sidebar-admin-button img {
+  width: 24px;
+  height: 24px;
+}
+
+aside.app-sidebar-admin footer a,
+aside.app-sidebar-admin footer button {
+  width: 48px;
+  height: 48px;
+ 
+  border: 0;
+ 
+  background: #12AFCB;
+  border-radius: 16px;
+ 
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+aside.app-sidebar-admin footer a:hover,
+aside.app-sidebar-admin footer button:hover {
+  background: #17D6EB;
+}
