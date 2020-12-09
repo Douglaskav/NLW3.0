@@ -1,4 +1,5 @@
 aside.app-sidebar-admin {              
+  position: fixed;
   width: 96px;
   height: 100vh; 
   padding: 32px 24px; 

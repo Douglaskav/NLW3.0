@@ -17,10 +17,10 @@ export default function Sidebar() {
       <img src={mapMarketImg} alt="Happy" />
 
       <nav>
-        <Link to="/" type="button" className="sidebar-admin-button">
+        <Link to="/app/admin/registred" type="button" className="sidebar-admin-button">
           <img src={LocationIcon} alt="Orfanatos Cadastrados" />
         </Link>
-        <Link to="/" type="button" className="sidebar-admin-button active">
+        <Link to="/app/admin/pending" type="button" className="sidebar-admin-button active">
           <img src={InfoCircleIcon} alt="Cadastrados Pendentes" />
         </Link> 
       </nav>

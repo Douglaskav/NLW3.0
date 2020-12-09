@@ -1,4 +1,4 @@
-#page-success { 
+#page-success, #page-error { 
   width: 100vw;
   height: 100vh;
   background-color: #37C77F;
@@ -9,12 +9,16 @@
   text-align: center;
 }
 
-#page-success .orphanage-created {
+#page-error {
+  background-color: #FF669D;
+}
+
+#page-success .orphanage-created, #page-error .orphanage-created {
   max-width: 400px;
   margin-right: 120px;
 }
 
-#page-success .orphanage-created h1 {
+#page-success .orphanage-created h1, #page-error .orphanage-created h1 {
   color: #FFFFFF;
   font-size: 80px;
   line-height: 80px;
@@ -22,14 +26,14 @@
   margin-bottom: 30px;
 }
 
-#page-success .orphanage-created p {
+#page-success .orphanage-created p, #page-error .orphanage-created p {
   max-width: 400px;
   font-size: 24px;
   line-height: 34px;
   font-weight: 600;
 }
 
-#page-success .orphanage-created button {
+#page-success .orphanage-created button, #page-error .orphanage-created button {
   border: none;
   width: 245px;
   height: 65px;
@@ -44,6 +48,14 @@
   transition: .2s;
 }
 
+#page-error .orphanage-created button {
+  background-color: #D6487B;
+}
+
 #page-success .orphanage-created button:hover {
   background-color: #3BD689;
+}
+
+#page-error .orphanage-created button:hover {
+  background-color: #FC7BA9;
 }
