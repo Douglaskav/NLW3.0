@@ -34,20 +34,17 @@ export default {
     const { email, token, password } = req.body;
 
     const user = await getRepository(User).findOne({ email });
+    const now = new Date();
 
-    console.log(user);
     if (!user) return res.status(400).send({ error: 'User not found' });
 
     if (token !== user.passwordResetToken) return res.status(400).send({ error: 'Token invalid'  });
 
-    const now = new Date();
-
     if (now > user.passwordResetExpires) return res.status(400).send({ error: 'Cannot reset password, try again' });
 
-    user.password = password;
-
+    user.password = password;    
     await getRepository(User).save(user);
 
-    return res.status(400).json({ message: 'Ok', token, password, user });
+    return res.status(400).json({ message: 'Your password has been changed.',});
   }
 }

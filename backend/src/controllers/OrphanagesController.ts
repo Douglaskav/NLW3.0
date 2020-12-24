@@ -5,10 +5,8 @@ import orphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
 export default {
-  async index(req: Request, res: Response) {
-    const orphanagesRepository = getRepository(Orphanage);
-  
-    const orphanages = await orphanagesRepository.find({
+  async index(req: Request, res: Response) { 
+    const orphanages = await getRepository(Orphanage).find({
       relations: ['images']
     });
 
@@ -18,9 +16,7 @@ export default {
   async show(req: Request, res: Response) {
     const { id } = req.params;
 
-    const orphanagesRepository = getRepository(Orphanage);
-  
-    const orphanage = await orphanagesRepository.findOneOrFail(id, {
+    const orphanage = await getRepository(Orphanage).findOneOrFail(id, {
       relations: ['images']
     });
 
