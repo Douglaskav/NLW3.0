@@ -7,10 +7,9 @@ import User from '../models/User'
 
 export default {
   async authenticate(req: Request, res: Response) {
-    const repository = getRepository(User);
     const { email, password } = req.body;
 
-    const user = await repository.findOne({ where: { email }});
+    const user = await getRepository(User).findOne({ email });
 
     if (!user) {
       return res.sendStatus(401);

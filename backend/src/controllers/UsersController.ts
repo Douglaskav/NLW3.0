@@ -5,7 +5,9 @@ import { getRepository } from 'typeorm';
 
 export default {
   async index(req: Request, res: Response) {
-    return res.json(req.userId);
+    const users = await getRepository(User).find();
+
+    return res.json(users);
   },
 
   async create(req: Request, res: Response) {
