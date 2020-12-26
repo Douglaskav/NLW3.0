@@ -7,7 +7,8 @@ import * as Yup from 'yup';
 export default {
   async index(req: Request, res: Response) { 
     const orphanages = await getRepository(Orphanage).find({
-      relations: ['images']
+      relations: ['images'],
+      where: { 'pending': 0 }
     });
 
     return res.json(orphanageView.renderMany(orphanages)); 
@@ -17,8 +18,11 @@ export default {
     const { id } = req.params;
 
     const orphanage = await getRepository(Orphanage).findOneOrFail(id, {
-      relations: ['images']
+      relations: ['images'],
+      where: { 'pending': 0 }
     });
+
+    console.log(orphanage);
 
     return res.json(orphanageView.render(orphanage)); 
   },
@@ -49,7 +53,8 @@ export default {
       instructions,
       opening_hours,
       open_on_weekends: open_on_weekends === 'true',
-      images
+      images,
+      pending: true
     }
 
     const schema = Yup.object().shape({
@@ -64,7 +69,8 @@ export default {
         Yup.object().shape({
           path: Yup.string().required() 
         })
-      )
+      ),
+      pending: Yup.boolean().required()
     })
 
 

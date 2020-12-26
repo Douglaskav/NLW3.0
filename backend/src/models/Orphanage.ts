@@ -29,7 +29,7 @@ export default class Orphanage {
   open_on_weekends: boolean;
 
   @Column()
-  peding: boolean;
+  pending: boolean;
   
   @OneToMany(() => Image, image => image.orphanage, {
     cascade: ['insert', 'update']
