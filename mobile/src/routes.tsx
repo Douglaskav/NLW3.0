@@ -11,11 +11,17 @@ import SelectMapPosition from './pages/SelectMapPosition';
 import OrphanageData from './pages/OrphanageData';
 
 import Header from './components/Header';
+import Onboarding from './pages/Onboarding';
 
 export default function Routes() {
   return (
     <NavigationContainer>
       <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#F2F3F5' } }}>
+        <Screen 
+          name="Onboarding"
+          component={Onboarding}
+        />
+
         <Screen
           name="OrphanagesMap"
           component={OrphanagesMap}
