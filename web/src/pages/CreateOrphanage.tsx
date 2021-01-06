@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { useHistory } from 'react-router-dom';
@@ -15,8 +15,6 @@ import Switch from '../components/Switch';
 export default function CreateOrphanage() {
   const history = useHistory();
 
-  const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
-
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
@@ -24,14 +22,16 @@ export default function CreateOrphanage() {
   const [open_on_weekends, setOpenOnWeekEnds] = useState<boolean>(false);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
+  const [location, setLocation] = useState<[number, number]>([0, 0]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      setLocation([position.coords.latitude, position.coords.longitude]);
+    });
+  }, []);
 
   function handleMapClick(event: LeafletMouseEvent) {
-    const { lat, lng } = event.latlng;
-
-    setPosition({
-      latitude: lat,
-      longitude: lng
-    });
+    setLocation([event.latlng.lat,event.latlng.lng]);
   }
 
   function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
@@ -53,14 +53,12 @@ export default function CreateOrphanage() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const { latitude, longitude } = position;
-
     const data = new FormData();
 
     data.append('name', name);
     data.append('about', about);
-    data.append('latitude', String(latitude));
-    data.append('longitude', String(longitude));
+    data.append('latitude', String(location[0]));
+    data.append('longitude', String(location[1]));
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
@@ -74,7 +72,7 @@ export default function CreateOrphanage() {
       history.push('/app');
     })
   }
-  
+
   return (
     <div id="page-create-orphanage">
       <Sidebar />
@@ -85,7 +83,7 @@ export default function CreateOrphanage() {
             <legend>Dados</legend>
 
             <Map 
-              center={[-5.2083584, -37.3549512]} 
+              center={[location[0], location[1]]}
               style={{ width: '100%', height: 280 }}
               zoom={15}
               onClick={handleMapClick}
@@ -94,11 +92,11 @@ export default function CreateOrphanage() {
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
 
-              { position.latitude !== 0 
+              { location[0] !== 0 
                 ? <Marker 
                     interactive={false}
                     icon={mapIcon} 
-                    position={[position.latitude, position.longitude]} 
+                    position={[location[0], location[1]]} 
                   />
                 : null
               }
@@ -164,7 +162,7 @@ export default function CreateOrphanage() {
          </fieldset>
 
           <button className="confirm-button" type="submit" disabled={
-            !name || !about || !images || !instructions || !opening_hours || !!!position.latitude || !!!position.longitude
+            !name || !about || !images || !instructions || !opening_hours || !!!location[0] || !!!location[1]
            }>
             Confirmar
           </button>

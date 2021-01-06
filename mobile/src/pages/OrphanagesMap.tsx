@@ -18,20 +18,6 @@ interface Orphanage {
   longitude: number;
 }
 
-interface LocationParams {
-  coords: {
-    accuracy: number | null,
-    altitude: number | null,
-    altitudeAccuracy: number | null,
-    heading: number | null,
-    latitude: number,
-    longitude: number,
-    speed: number | null,
-  },
-  mocked?: boolean,
-  timestamp: number,
-}
-
 export default function OrphanageMap() {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
   const [location, setLocation] = useState<[number, number]>([0, 0]);

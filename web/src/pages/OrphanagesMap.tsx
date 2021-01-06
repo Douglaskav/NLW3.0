@@ -18,12 +18,26 @@ interface Orphanage {
 
 function OrphanangesMap() {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+  const [location, setLocation] = useState<[number, number]>([0, 0]);
 
   useEffect(() => {
     api.get('orphanages').then(response => {
       setOrphanages(response.data);
     })
   }, [])
+
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(foundLocation, noLocation, { maximumAge:60000, timeout:5000, enableHighAccuracy:true });
+  }, []);
+
+  function foundLocation(position: any) {
+    setLocation([position.coords.latitude, position.coords.longitude]);
+  }
+
+  function noLocation() {
+    alert('A gente precisa de sua permissão para encontrar os orfanatos proximos de você.');
+  }
 
   return (
     <div id="page-map">
@@ -42,7 +56,7 @@ function OrphanangesMap() {
       </aside>
 
       <Map
-        center={[-5.1952044, -37.350665]}
+        center={[location[0], location[1]]}
         zoom={15}
         style={{ width: '100%', height: '100%' }}
       >
