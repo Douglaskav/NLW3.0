@@ -12,6 +12,7 @@ import OrphanageData from './pages/OrphanageData';
 
 import Header from './components/Header';
 import Onboarding from './pages/Onboarding';
+import OrphanageVisit from './pages/OrphanageVisit';
 
 export default function Routes() {
   return (
@@ -50,10 +51,18 @@ export default function Routes() {
           component={OrphanageData}
           options={{
             headerShown: true,
-            header: () => <Header title="Informe os dados" />
-          }}
- 
+            header: () => <Header title="Adicione um orfanato" />
+          }} 
         /> 
+
+        <Screen 
+          name="OrphanageVisit"
+          component={OrphanageVisit}
+          options={{
+            headerShown: true,
+            header: () => <Header title="Adicione um orfanato" />
+          }}
+        />
       </Navigator>
     </NavigationContainer>
   )

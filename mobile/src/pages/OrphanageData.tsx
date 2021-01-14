@@ -1,33 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View, StyleSheet, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { useRoute, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import * as ImagePicker from 'expo-image-picker';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-interface OrphanageDataRouteParams {
-  position: {
-    latitude: number;
-    longitude: number;
-  }
-}
-
-export default function OrphanageData() {
+export default function OrphanageData(props: any) {
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
   const [images, setImages] = useState<object[]>([]);
-  
+
+  const { location } = props.route.params;
   const navigation = useNavigation();
-  const route = useRoute();
-  const params = route.params as OrphanageDataRouteParams;
 
   async function handleOrphanageData() {
-    console.log(name, about, phone_number, images);
+    navigation.navigate('OrphanageVisit', {name, about, phone_number, images, location});
   }
 
   async function handleSelectImages() {
@@ -93,12 +85,11 @@ export default function OrphanageData() {
         end={{ x: 1, y: 0 }}
         style={styles.uploadedImagesContainer}
       >
-        {images.map((image, index) => {
+        {images.map(image => {
           return (
-            <View key={index} style={styles.imageContainer}>
+            <View key={image.uri} style={styles.imageContainer}>
               <View style={styles.image}>
                 <Image
-                  key={image}
                   source={{ uri: image.uri }}
                   style={styles.uploadedImage}
                 />
@@ -202,7 +193,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'red',
     borderRadius: 20,
-    height: 72,
     marginBottom: 10
   },
 
