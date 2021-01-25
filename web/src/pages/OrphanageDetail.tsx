@@ -11,26 +11,14 @@ import '../styles/pages/orphanage.css';
 
 import iconMap from '../utils/mapIcon';
 
-interface Orphanage {
-  name: string;
-  latitude: number;
-  longitude: number;
-  about: string;
-  instructions: string;
-  opening_hours: string;
-  open_on_weekends: boolean;
-  images: Array<{
-    id: number;
-    url: string;
-  }>;
-}
+import Orphanage from '../interfaces/Orphanage';
 
 interface OrphanageParams {
   id: string;
 }
 
 
-export default function Orphanage() {
+export default function OrphanageDetail() {
   const params = useParams<OrphanageParams>();
   const [orphanage, setOrphanage] = useState<Orphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);

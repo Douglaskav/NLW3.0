@@ -132,23 +132,35 @@ form.create-orphanage-form .open_on_weekends {
   width: 100%;
 }
 
-form.create-orphanage-form button.confirm-button {
+form.create-orphanage-form .action-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form.create-orphanage-form button.confirm-button, form.create-orphanage-form button.cancel-button {
   margin-top: 30px;
 
   width: 100%;
   height: 64px;
+  margin: 0 15px;
   border: 0;
   cursor: pointer;
   background: #3CDC8C;
   border-radius: 20px;
   color: #FFFFFF;
   font-weight: 800;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
 
   transition: background-color 0.2s;
+}
+ 
+form.create-orphanage-form button.cancel-button {
+  background: #FF669D;
 }
 
 form.create-orphanage-form button.confirm-button:disabled,
@@ -162,7 +174,7 @@ form.create-orphanage-form button.confirm-button[disabled]:hover {
   background-color: #9BE3BF;
 }
 
-form.create-orphanage-form button.confirm-button svg {
+form.create-orphanage-form button.confirm-button img, form.create-orphanage-form button.cancel-button img {
   margin-right: 16px;
 }
 

@@ -13,11 +13,14 @@ const routes = Router();
 const upload = multer(uploadConfig);
 
 routes.get('/orphanages', OrphanagesController.index);
+routes.get('/orphanages/pending', OrphanagesController.indexOff);
 routes.get('/orphanages/:id', OrphanagesController.show);
+routes.get('/orphanages/pending/:id', OrphanagesController.showOff);
 routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
 
 routes.post('/users', UsersController.create);
 routes.post('/users/auth', UsersAuthController.authenticate);
+routes.get('/users/logout', authMiddleware, UsersAuthController.logout);
 
 routes.post('/users/send', UsersRecoveryPasswordController.sendEmail);
 routes.post('/users/change', UsersRecoveryPasswordController.changePassword);

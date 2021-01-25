@@ -12,13 +12,13 @@ export default {
     const user = await getRepository(User).findOne({ email });
 
     if (!user) {
-      return res.sendStatus(401);
+      return res.status(401).send({ message: 'Esse email não existe.' });
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-      return res.sendStatus(401);
+      return res.status(401).send({ message: 'A senha não está correta.' });
     }
 
     const token = jwt.sign({ id: user.id }, 'secret', { expiresIn: 83999 });
@@ -27,5 +27,10 @@ export default {
       user,
       token
     })
+  },
+
+  async logout(req: Request, res: Response) {
+    req.userId = '';
+    return res.redirect('/app')
   }
 }

@@ -14,6 +14,16 @@ export default {
     return res.json(orphanageView.renderMany(orphanages)); 
   },
 
+  async indexOff(req: Request, res: Response) { 
+    const orphanages = await getRepository(Orphanage).find({
+      relations: ['images'],
+      where: { 'pending': 1 }
+    });
+
+    return res.json(orphanageView.renderMany(orphanages)); 
+  },
+
+
   async show(req: Request, res: Response) {
     const { id } = req.params;
 
@@ -21,8 +31,21 @@ export default {
       relations: ['images'],
       where: { 'pending': 0 }
     });
+    
+    if (!orphanage) return res.status(404).send({ message: 'Orphanage not found.' });
 
-    console.log(orphanage);
+    return res.json(orphanageView.render(orphanage)); 
+  },
+
+  async showOff(req: Request, res: Response) {
+    const { id } = req.params;
+    
+    const orphanage = await getRepository(Orphanage).findOneOrFail(id, {
+      relations: ['images'],
+      where: { 'pending': 1 }
+    });
+    
+    if (!orphanage) return res.status(404).send({ message: 'Orphanage not found.' });
 
     return res.json(orphanageView.render(orphanage)); 
   },

@@ -3,15 +3,17 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Landing from './pages/Landing';
 import OrphanangesMap from './pages/OrphanagesMap';
-import Orphanage from './pages/Orphanage';
+import OrphanageDetail from './pages/OrphanageDetail';
 import CreateOrphanage from './pages/CreateOrphanage';
+import ConfirmOrphanage from './pages/ConfirmOrphanage';
 import OrphanageSuccess from './pages/OrphanageSuccess';
 import OrphanageError from './pages/OrphanageError';
 import OrphanageLogin from './pages/OrphanageLogin';
 import ForgetPassword from './pages/ForgetPassword';
 import RecivedEmailPage from './pages/RecivedEmailPage';
-import OrphanagePending from './pages/OrphanagePending';
-import OrphanageRegistred from './pages/OrphanageRegistred';
+import OrphanageAdmin from './pages/OrphanageAdmin';
+// import OrphanagePending from './pages/OrphanagePending';
+// import OrphanageRegistred from './pages/OrphanageRegistred';
 
 export default function Routes() {
   return (
@@ -21,7 +23,7 @@ export default function Routes() {
         <Route path="/app" exact component={OrphanangesMap} />
 
         <Route path="/orphanage/create" component={CreateOrphanage} />
-        <Route path="/orphanage/:id"  component={Orphanage} />
+        <Route path="/orphanage/:id"  component={OrphanageDetail} />
 
         <Route path="/app/success" component={OrphanageSuccess} />
         <Route path="/app/error" component={OrphanageError} />
@@ -31,8 +33,8 @@ export default function Routes() {
 
         <Route path="/app/recived" component={RecivedEmailPage} />
 
-        <Route path="/app/admin/registred" component={OrphanageRegistred} />
-        <Route path="/app/admin/pending" component={OrphanagePending} />
+        <Route path="/app/admin" component={OrphanageAdmin} />
+        <Route path="/app/confirm" component={ConfirmOrphanage} />
       </Switch>
     </BrowserRouter>
   )
